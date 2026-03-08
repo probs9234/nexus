@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  gateway:
+    build: ./nexus_gateway
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./nexus_data/gateway:/app/nexus_metadata.db
+    depends_on:
+      - node1
+      - node2
+      - node3
+    networks:
+      - nexus-net
+
+  node1:
+    build: ./nexus_node
+    volumes:
+      - ./nexus_data/node1:/app/storage
+    networks:
+      - nexus-net
+
+  node2:
+    build: ./nexus_node
+    volumes:
+      - ./nexus_data/node2:/app/storage
+    networks:
+      - nexus-net
+
+  node3:
+    build: ./nexus-node
+    volumes:
+      - ./nexus_data/node3:/app/storage
+    networks:
+      - nexus-net
+
+networks:
+  nexus-net:
+    driver: bridge
