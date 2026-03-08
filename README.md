@@ -82,5 +82,5 @@ This will automatically spin up 4 local background uvicorn servers (Gateway + 3 
 
 ---
 <div align="center">
-  <i>Built with ❤️ using FastAPI</i>
+  <i>Built with ❤️ using FastAPI | Made by <b>probs</b></i>
 </div>
